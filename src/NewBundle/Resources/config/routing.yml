@@ -1,0 +1,7 @@
+user:
+  type: rest
+  resource: NewBundle\Controller\UserController
+  prefix: /user
+addentry:
+  path: /books/info/{id}
+  defaults: {_controller: NewBundle:User:getInfo, id:""}

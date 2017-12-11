@@ -1,0 +1,27 @@
+AppBundle\Entity\Book:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\BookRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            column: Name
+        cat:
+            type: string
+            length: 255
+            column: Cat
+        author:
+            type: string
+            length: 255
+            column: Author
+        sSN:
+            type: integer
+            column: SSN
+    lifecycleCallbacks: {  }

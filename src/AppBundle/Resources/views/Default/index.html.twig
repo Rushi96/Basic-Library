@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    border-color: 2;
+
+}
+
+td, th {
+    border: 1px;
+    text-align: left;
+    padding: 4px;
+    margin:4px;
+}
+
+
+</style>
+</head>
+
+
+
+<body>
+
+<form  action="{{ path('add') }}" method= "POST" name="add" value = "add">
+  BookName:<br>
+  <input type="text" id = "bname" name="bname" >
+  <br>
+  AuthorName:<br>
+  <input type="text" id = "aname" name="aname" >
+  <br><br>
+   Category:<br>
+  <input type="text" id = "aname" name="cat" >
+  <br><br>
+   SSN:<br>
+  <input type="value" id = "aname" name="ssn" >
+  <br><br>
+  <input id = "add" type="submit" value="Submit">
+</form> 
+
+
+<table>
+  <tr>
+    <th>Book Name</th>
+    <th>Author Name</th>
+    <th>Category</th> 
+    <th>SSN</th>
+    <th>Id</th>
+    
+  </tr>
+  
+    {% for c in db %}
+        <tr>
+            <td>{{ c.name }}</td>
+            <td>{{ c.author }}</td>
+            <td>{{ c.cat }}</td>
+            <td>{{ c.sSN }}</td>
+            <td>{{ c.id }}</td>
+           <!-- <button type="button" onclick="{{ path('edit', {'id':c.id}) }}">Sub</
+            //<a href = "{{ path('edit', {'id':c.id}) }}" name = "edit" value = "edit">//SSSSS</a>-->
+            <form  action="{{ path('edit', {'bid':c.id}) }}" method= "POST" name = "edit" value = "editv">
+            <th><input type="submit" value="Edit" name={{c.id}} id="edit"></th>
+            </form>          
+            <form  action="{{ path('delete',{'bid':c.id}) }}" method= "POST">
+            <th><input type="submit" id = "delete" value="Delete" name="{{c.id}}"></th>
+            </form>
+        </tr>
+    {% endfor %}
+  
+</table>
+
+
+
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}kjsfnvkjfvn{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
+-->

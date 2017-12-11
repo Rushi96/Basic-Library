@@ -1,0 +1,25 @@
+new:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+#rest:
+ #   resource: "@NewBundle/Resources/config/routing.yml"
+  #  prefix: /api
+
+index:
+    path: /
+    defaults: {_controller: AppBundle:Default:index}
+add:
+    path: /add
+    defaults: {_controller: AppBundle:Default:add}
+edit:
+    path: /edit/{id}
+    defaults: {_controller: AppBundle:Default:edit,id:""}
+update:
+    path: /update/{id}
+    defaults: {_controller: AppBundle:Default:update,id:""}
+delete:
+    path: /delete/{id}
+    defaults: {_controller: AppBundle:Default:delete,id:""}
+
